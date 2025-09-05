@@ -40,19 +40,19 @@ const Contact = () => {
     {
       name: "GitHub",
       icon: <Github className="w-5 h-5" />,
-      url: "https://github.com/rajavardhanreddy",
+      url: "https://github.com/ravularajavardhan96",
       color: "hover:text-accent"
     },
     {
       name: "LinkedIn",
       icon: <Linkedin className="w-5 h-5" />,
-      url: "https://linkedin.com/in/rajavardhanreddy",
+      url: "https://www.linkedin.com/in/rajavardhan-reddy-ravula-b122372b0",
       color: "hover:text-primary"
     },
     {
       name: "Email",
       icon: <Mail className="w-5 h-5" />,
-      url: "mailto:rajavardhan@email.com",
+      url: "mailto:ravularajavardhan96@gmail.com",
       color: "hover:text-accent"
     }
   ];
@@ -82,8 +82,8 @@ const Contact = () => {
                   </div>
                   <div>
                     <p className="font-medium text-foreground">Email</p>
-                    <a href="mailto:rajavardhan@email.com" className="text-accent hover:underline">
-                      rajavardhan@email.com
+                    <a href="mailto:ravularajavardhan96@gmail.com" className="text-accent hover:underline">
+                      ravularajavardhan96@gmail.com
                     </a>
                   </div>
                 </div>
@@ -94,7 +94,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <p className="font-medium text-foreground">Location</p>
-                    <p className="text-muted-foreground">Hyderabad, India</p>
+                    <p className="text-muted-foreground">Nirmal, Telangana, India</p>
                   </div>
                 </div>
 

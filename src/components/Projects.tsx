@@ -1,4 +1,4 @@
-import { ExternalLink, Github, MapPin, TrendingUp, Star, Users, ChevronLeft, ChevronRight } from "lucide-react";
+import { ExternalLink, Github, MapPin, TrendingUp, Star, Users, ChevronLeft, ChevronRight, Award } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 
@@ -46,7 +46,7 @@ const ScreenshotCarousel = ({ screenshots }: { screenshots: any[] }) => {
             key={index}
             onClick={() => setCurrentIndex(index)}
             className={`w-2 h-2 rounded-full transition-all ${
-              index === currentIndex ? 'bg-accent' : 'bg-white/50'
+              index === currentIndex ? "bg-accent" : "bg-white/50"
             }`}
           />
         ))}
@@ -64,58 +64,72 @@ const Projects = () => {
     {
       title: "🌍 Wanderlust",
       subtitle: "Full-Stack Travel Listing Platform",
-      description: "A comprehensive travel listing web application that allows users to explore destinations, view them on an interactive map, register/login, add new listings with images, and post reviews. Built as part of the Delta 5.0 MERN Stack Batch from Apna College.",
+      description:
+        "A comprehensive travel listing web application that allows users to explore destinations, view them on an interactive map, register/login, add new listings with images, and post reviews. Built as part of the Delta 5.0 MERN Stack Batch from Apna College.",
       tech: ["MongoDB", "Express.js", "React.js", "Node.js", "Mapbox", "Authentication"],
-      liveUrl: "#",
-      githubUrl: "#",
+      liveUrl: "https://wanderlust-dqbl.onrender.com/listings",
+      githubUrl: "https://github.com/ravularajavardhan96/Wanderlust",
       features: [
         "🗺️ Interactive map integration with Mapbox",
         "🔐 User authentication & authorization",
         "📸 Image upload functionality",
         "⭐ Review and rating system",
-        "📱 Responsive design"
+        "📱 Responsive design",
       ],
       badges: ["Featured", "Full-Stack", "MERN"],
       screenshots: [
-        { title: "Home Page", url: "https://via.placeholder.com/600x400/8B5CF6/ffffff?text=Wanderlust+Home" },
-        { title: "Interactive Map", url: "https://via.placeholder.com/600x400/A855F7/ffffff?text=Map+View" },
-        { title: "Listing Details", url: "https://via.placeholder.com/600x400/C084FC/ffffff?text=Listing+Page" },
-        { title: "User Dashboard", url: "https://via.placeholder.com/600x400/DDD6FE/000000?text=Dashboard" }
-      ]
+        { title: "Home Page", url: "/screenshots/wanderlust/homepage.png" },
+        { title: "Interactive Map", url: "/screenshots/wanderlust/map.png" },
+        { title: "Listing Details", url: "/screenshots/wanderlust/listings.png" },
+      ],
     },
     {
       title: "🐝 TradeHive",
       subtitle: "Zerodha Clone - Stock Trading Platform",
-      description: "A modern stock trading platform clone of Zerodha where users can authenticate, explore stocks, and perform buy/sell operations. Features a user dashboard, secure authentication, and uses React Context API for state management.",
+      description:
+        "A modern stock trading platform clone of Zerodha where users can authenticate, explore stocks, and perform buy/sell operations. Features a user dashboard, secure authentication, and uses React Context API for state management.",
       tech: ["React.js", "Node.js", "Express.js", "JWT", "Context API", "Bootstrap"],
-      liveUrl: "#",
-      githubUrl: "#",
+      liveUrl: "https://frontend-zerodha.netlify.app/",
+      githubUrl: "https://github.com/ravularajavardhan96/TradeHive",
       features: [
         "📈 Buy & Sell functionality with Context API",
         "🔐 Secure JWT authentication",
         "🖥️ User dashboard for portfolio management",
         "🎨 Clean, responsive UI design",
-        "⚡ Interactive trading experience"
+        "⚡ Interactive trading experience",
       ],
       badges: ["Clone Project", "Trading", "React"],
       screenshots: [
-        { title: "Login Page", url: "https://via.placeholder.com/600x400/EC4899/ffffff?text=TradeHive+Login" },
-        { title: "Trading Dashboard", url: "https://via.placeholder.com/600x400/F97316/ffffff?text=Trading+Dashboard" },
-        { title: "Portfolio View", url: "https://via.placeholder.com/600x400/EF4444/ffffff?text=Portfolio" },
-        { title: "Buy/Sell Interface", url: "https://via.placeholder.com/600x400/F59E0B/ffffff?text=Buy+Sell" }
-      ]
-    }
+        { title: "Home Page", url: "/screenshots/tradehive/Homepage.png" },
+        { title: "Buy and Sell window", url: "/screenshots/tradehive/buy&sell.png" },
+        { title: "Support page", url: "/screenshots/tradehive/support.png" },
+        { title: "User Dashboard", url: "/screenshots/tradehive/dashboard.png" },
+      ],
+    },
   ];
 
   const achievements = [
     { icon: <Star className="w-5 h-5" />, text: "Completed Delta 5.0 MERN Stack Batch — Apna College" },
     { icon: <Users className="w-5 h-5" />, text: "Contributed to Hackathons" },
-    { icon: <TrendingUp className="w-5 h-5" />, text: "Built capstone projects in full-stack journey" }
+  ];
+
+  const certifications = [
+    {
+      title: "Delta Full Stack Web Development",
+      issuer: "Apna College",
+      link: "https://drive.google.com/file/d/1RAJsrGKe4kg-2GH005hKMTao09bRUNFz/view",
+    },
+    {
+      title: "Web Development Internship",
+      issuer: "Pinnacle Labs",
+      link: "https://drive.google.com/file/d/1IC_5LBX7Vgv-OnhJvf9Jj_i2jEVxRpAQ/view",
+    },
   ];
 
   return (
     <section id="projects" className="section-padding bg-background-secondary/50">
       <div className="container-custom">
+        {/* Section Heading */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             <span className="gradient-text">Featured Projects</span>
@@ -126,8 +140,9 @@ const Projects = () => {
           </p>
         </div>
 
+        {/* Projects */}
         <div className="grid lg:grid-cols-2 gap-8 mb-16">
-          {projects.map((project, index) => (
+          {projects.map((project) => (
             <div key={project.title} className="project-card p-8">
               <div className="flex flex-wrap gap-2 mb-4">
                 {project.badges.map((badge) => (
@@ -140,14 +155,10 @@ const Projects = () => {
                 ))}
               </div>
 
-              <h3 className="text-2xl font-bold mb-2 text-foreground">
-                {project.title}
-              </h3>
+              <h3 className="text-2xl font-bold mb-2 text-foreground">{project.title}</h3>
               <p className="text-accent font-medium mb-4">{project.subtitle}</p>
-              
-              <p className="text-muted-foreground mb-6 leading-relaxed">
-                {project.description}
-              </p>
+
+              <p className="text-muted-foreground mb-6 leading-relaxed">{project.description}</p>
 
               <ScreenshotCarousel screenshots={project.screenshots} />
 
@@ -177,32 +188,59 @@ const Projects = () => {
                 </div>
               </div>
 
+              {/* Live & Code Buttons */}
               <div className="flex gap-4">
-                <Button className="btn-primary flex-1">
-                  <ExternalLink className="w-4 h-4 mr-2" />
-                  Live Demo
-                </Button>
-                <Button className="btn-accent flex-1">
-                  <Github className="w-4 h-4 mr-2" />
-                  View Code
-                </Button>
+                <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="flex-1">
+                  <Button className="btn-primary w-full">
+                    <ExternalLink className="w-4 h-4 mr-2" />
+                    Live Demo
+                  </Button>
+                </a>
+
+                <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="flex-1">
+                  <Button className="btn-accent w-full">
+                    <Github className="w-4 h-4 mr-2" />
+                    View Code
+                  </Button>
+                </a>
               </div>
             </div>
           ))}
         </div>
 
-        {/* Achievements Section */}
+        {/* Achievements & Certifications Section */}
         <div className="card-hover p-8 rounded-xl">
           <h3 className="text-2xl font-bold mb-6 text-center">
             <span className="gradient-text">🏅 Certifications & Achievements</span>
           </h3>
-          <div className="grid md:grid-cols-3 gap-6">
+
+          {/* Achievements */}
+          <div className="grid md:grid-cols-3 gap-6 mb-10">
             {achievements.map((achievement, index) => (
               <div key={index} className="flex items-center p-4 bg-background/50 rounded-lg">
-                <div className="text-accent mr-3">
-                  {achievement.icon}
-                </div>
+                <div className="text-accent mr-3">{achievement.icon}</div>
                 <span className="text-sm text-foreground">{achievement.text}</span>
+              </div>
+            ))}
+          </div>
+
+          {/* Certifications */}
+          <div className="grid md:grid-cols-2 gap-6">
+            {certifications.map((cert, index) => (
+              <div key={index} className="p-5 rounded-lg bg-background/50 hover:shadow-lg transition">
+                <div className="flex items-center mb-2">
+                  <Award className="w-5 h-5 text-yellow-500 mr-2" />
+                  <h4 className="text-lg font-semibold">{cert.title}</h4>
+                </div>
+                <p className="text-sm text-gray-600">{cert.issuer}</p>
+                <a
+                  href={cert.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center mt-2 text-blue-600 hover:underline"
+                >
+                  View Certificate <ExternalLink className="w-4 h-4 ml-1" />
+                </a>
               </div>
             ))}
           </div>

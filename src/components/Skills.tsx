@@ -1,12 +1,9 @@
 import { 
-  Code, 
-  Database, 
   Server, 
   Globe, 
   GitBranch, 
-  Palette,
   Terminal,
-  FileCode
+  BookOpen // for DSA icon
 } from "lucide-react";
 
 const Skills = () => {
@@ -16,7 +13,18 @@ const Skills = () => {
       icon: <Server className="w-6 h-6" />,
       skills: ["MongoDB", "Express.js", "React.js", "Node.js"],
       color: "primary",
-      featured: true
+      featured: true,
+      certificate: "https://drive.google.com/file/d/1RAJsrGKe4kg-2GH005hKMTao09bRUNFz/view?usp=drive_link" // 🔗 Replace with your actual link
+    },
+    {
+      title: "Java + DSA & Problem Solving",
+      icon: <BookOpen className="w-6 h-6" />,
+      skills: ["Java", "Data Structures", "Algorithms", "Problem Solving"],
+      color: "primary",
+      links: [
+        { name: "LeetCode", url: "https://leetcode.com/u/rajavardhan96/" },
+        { name: "GeeksforGeeks", url: "https://www.geeksforgeeks.org/user/ravularajatz4m/" }
+      ]
     },
     {
       title: "Frontend",
@@ -25,15 +33,9 @@ const Skills = () => {
       color: "accent"
     },
     {
-      title: "Backend & Database",
-      icon: <Database className="w-6 h-6" />,
-      skills: ["SQL", "Python", "RESTful APIs"],
-      color: "primary"
-    },
-    {
-      title: "Development Tools",
+      title: "Development & Version Control Tools",
       icon: <GitBranch className="w-6 h-6" />,
-      skills: ["Git", "GitHub", "VS Code", "Terminal"],
+      skills: ["Git & GitHub", "VS Code", "Terminal"],
       color: "accent"
     }
   ];
@@ -50,15 +52,17 @@ const Skills = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* Skills Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-12">
           {skillCategories.map((category, index) => (
             <div
               key={category.title}
-              className={`skill-card p-6 rounded-xl ${
-                category.featured ? "lg:col-span-2 lg:row-span-1" : ""
+              className={`skill-card p-6 rounded-xl flex flex-col justify-between ${
+                category.featured ? "lg:row-span-1" : ""
               }`}
               style={{ animationDelay: `${index * 0.1}s` }}
             >
+              {/* Title + Icon */}
               <div className={`flex items-center mb-4 ${
                 category.color === "primary" ? "text-primary" : "text-accent"
               }`}>
@@ -66,13 +70,12 @@ const Skills = () => {
                 <h3 className="text-xl font-bold ml-3">{category.title}</h3>
               </div>
               
-              <div className={`grid ${
-                category.featured ? "grid-cols-2 gap-4" : "grid-cols-1 gap-2"
-              }`}>
+              {/* Skills List */}
+              <div className="flex flex-col items-center gap-3">
                 {category.skills.map((skill) => (
                   <div
                     key={skill}
-                    className={`p-3 rounded-lg bg-background/50 text-center font-medium transition-all duration-300 hover:scale-105 ${
+                    className={`w-full p-3 rounded-lg bg-background/50 text-center font-medium transition-all duration-300 hover:scale-105 ${
                       category.color === "primary" 
                         ? "hover:bg-primary/10 hover:text-primary" 
                         : "hover:bg-accent/10 hover:text-accent"
@@ -82,12 +85,46 @@ const Skills = () => {
                   </div>
                 ))}
               </div>
-              
-              {category.featured && (
-                <div className="mt-4 p-3 bg-gradient-primary rounded-lg text-primary-foreground text-center font-semibold">
-                  ⭐ Primary Specialization
+
+              {/* Profile Links */}
+              {category.links && (
+                <div className="mt-4 flex flex-col items-center space-y-2">
+                  {category.links.map((link) => (
+                    <a
+                      key={link.name}
+                      href={link.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm text-primary hover:underline"
+                    >
+                      🔗 {link.name} Profile
+                    </a>
+                  ))}
                 </div>
               )}
+              
+              {/* Featured Badge with Certificate Link */}
+              {category.featured && (
+  <div className="mt-6 flex flex-col items-center gap-3">
+    {/* Badge */}
+    <div className="px-5 py-2 rounded-full bg-gradient-to-r from-primary to-purple-500 text-white font-semibold shadow-md">
+      ⭐ Primary Specialization
+    </div>
+
+    {/* Certificate Link */}
+    {category.certificate && (
+      <a
+        href={category.certificate}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-flex items-center px-4 py-2 text-sm font-medium text-primary border border-primary rounded-lg transition-all hover:bg-primary hover:text-white hover:shadow-lg"
+      >
+        📜 View Certificate
+      </a>
+    )}
+  </div>
+)}
+
             </div>
           ))}
         </div>

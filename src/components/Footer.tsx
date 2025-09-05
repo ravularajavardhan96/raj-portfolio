@@ -8,15 +8,16 @@ const Footer = () => {
   const navLinks = [
     { name: "Home", href: "#hero" },
     { name: "About", href: "#about" },
+    {name: "Coding profiles",href:"#coding-profiles"},
     { name: "Skills", href: "#skills" },
     { name: "Projects", href: "#projects" },
     { name: "Contact", href: "#contact" },
   ];
 
   const socialLinks = [
-    { icon: <Github className="w-5 h-5" />, url: "https://github.com/rajavardhanreddy" },
-    { icon: <Linkedin className="w-5 h-5" />, url: "https://linkedin.com/in/rajavardhanreddy" },
-    { icon: <Mail className="w-5 h-5" />, url: "mailto:rajavardhan@email.com" },
+    { icon: <Github className="w-5 h-5" />, url: "https://github.com/ravularajavardhan96" },
+    { icon: <Linkedin className="w-5 h-5" />, url: "https://www.linkedin.com/in/rajavardhan-reddy-ravula-b122372b0" },
+    { icon: <Mail className="w-5 h-5" />, url: "mailto:ravularajavardhan96@email.com" },
   ];
 
   const scrollToSection = (href: string) => {
