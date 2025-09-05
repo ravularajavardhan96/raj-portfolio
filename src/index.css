@@ -6,54 +6,56 @@
 
 @layer base {
   :root {
-    /* Background System - Dark with subtle gradients */
-    --background: 220 15% 8%;
-    --background-secondary: 220 15% 12%;
-    --background-tertiary: 220 15% 16%;
-    --foreground: 220 10% 95%;
+    /* Background System - Rich Dark with Purple Undertones */
+    --background: 260 15% 8%;
+    --background-secondary: 260 20% 12%;
+    --background-tertiary: 260 25% 16%;
+    --foreground: 300 15% 96%;
     
-    /* Card System - Professional dark cards */
-    --card: 220 15% 12%;
-    --card-secondary: 220 15% 16%;
-    --card-foreground: 220 10% 95%;
-    --card-border: 220 15% 20%;
+    /* Card System - Elegant Dark Cards with Purple Hints */
+    --card: 260 20% 12%;
+    --card-secondary: 260 25% 16%;
+    --card-foreground: 300 15% 96%;
+    --card-border: 280 20% 25%;
     
-    /* Primary Brand - Deep Blue Gradient */
-    --primary: 240 75% 45%;
-    --primary-dark: 245 80% 35%;
-    --primary-light: 235 70% 55%;
-    --primary-foreground: 220 10% 98%;
+    /* Primary Brand - Electric Purple to Deep Violet */
+    --primary: 280 100% 65%;
+    --primary-dark: 285 90% 45%;
+    --primary-light: 275 100% 75%;
+    --primary-foreground: 260 15% 8%;
     
-    /* Accent System - Vibrant Cyan for CTAs */
-    --accent: 185 100% 50%;
-    --accent-dark: 185 100% 40%;
-    --accent-light: 185 100% 60%;
-    --accent-foreground: 220 15% 8%;
+    /* Accent System - Hot Pink/Magenta for CTAs */
+    --accent: 320 100% 65%;
+    --accent-dark: 325 90% 55%;
+    --accent-light: 315 100% 75%;
+    --accent-foreground: 260 15% 8%;
     
     /* Secondary Colors */
-    --secondary: 220 15% 20%;
-    --secondary-foreground: 220 10% 90%;
+    --secondary: 260 20% 22%;
+    --secondary-foreground: 300 15% 92%;
     
     /* Muted Elements */
-    --muted: 220 15% 18%;
-    --muted-foreground: 220 8% 65%;
+    --muted: 260 15% 20%;
+    --muted-foreground: 280 10% 68%;
     
     /* Interactive Elements */
-    --border: 220 15% 25%;
-    --input: 220 15% 18%;
-    --ring: 185 100% 50%;
+    --border: 280 20% 28%;
+    --input: 260 20% 18%;
+    --ring: 280 100% 65%;
     
-    /* Gradients */
+    /* Gradients - Purple/Pink Magic */
     --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-dark)));
     --gradient-accent: linear-gradient(135deg, hsl(var(--accent)), hsl(var(--accent-dark)));
-    --gradient-hero: linear-gradient(135deg, hsl(var(--background)) 0%, hsl(var(--background-secondary)) 50%, hsl(var(--primary)) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(var(--background)) 0%, hsl(var(--background-secondary)) 30%, hsl(280 40% 20%) 70%, hsl(var(--primary-dark)) 100%);
     --gradient-card: linear-gradient(145deg, hsl(var(--card)), hsl(var(--card-secondary)));
+    --gradient-rainbow: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--accent)) 50%, hsl(280 100% 70%) 100%);
     
-    /* Shadows */
-    --shadow-soft: 0 4px 20px -2px hsl(var(--background) / 0.3);
-    --shadow-medium: 0 8px 30px -4px hsl(var(--background) / 0.4);
-    --shadow-glow: 0 0 40px hsl(var(--accent) / 0.2);
-    --shadow-primary: 0 10px 40px -10px hsl(var(--primary) / 0.3);
+    /* Shadows - Purple Glow Effects */
+    --shadow-soft: 0 4px 20px -2px hsl(var(--background) / 0.4);
+    --shadow-medium: 0 8px 30px -4px hsl(var(--background) / 0.5);
+    --shadow-glow: 0 0 40px hsl(var(--accent) / 0.3);
+    --shadow-primary: 0 10px 40px -10px hsl(var(--primary) / 0.4);
+    --shadow-rainbow: 0 0 50px hsl(var(--primary) / 0.2), 0 0 100px hsl(var(--accent) / 0.1);
     
     /* Animations */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -79,30 +81,30 @@
   }
   
   .dark {
-    /* Dark theme inherits the same beautiful design system */
-    --background: 220 15% 8%;
-    --background-secondary: 220 15% 12%;
-    --background-tertiary: 220 15% 16%;
-    --foreground: 220 10% 95%;
-    --card: 220 15% 12%;
-    --card-secondary: 220 15% 16%;
-    --card-foreground: 220 10% 95%;
-    --card-border: 220 15% 20%;
-    --primary: 240 75% 45%;
-    --primary-dark: 245 80% 35%;
-    --primary-light: 235 70% 55%;
-    --primary-foreground: 220 10% 98%;
-    --accent: 185 100% 50%;
-    --accent-dark: 185 100% 40%;
-    --accent-light: 185 100% 60%;
-    --accent-foreground: 220 15% 8%;
-    --secondary: 220 15% 20%;
-    --secondary-foreground: 220 10% 90%;
-    --muted: 220 15% 18%;
-    --muted-foreground: 220 8% 65%;
-    --border: 220 15% 25%;
-    --input: 220 15% 18%;
-    --ring: 185 100% 50%;
+    /* Dark theme uses the same modern purple/pink palette */
+    --background: 260 15% 8%;
+    --background-secondary: 260 20% 12%;
+    --background-tertiary: 260 25% 16%;
+    --foreground: 300 15% 96%;
+    --card: 260 20% 12%;
+    --card-secondary: 260 25% 16%;
+    --card-foreground: 300 15% 96%;
+    --card-border: 280 20% 25%;
+    --primary: 280 100% 65%;
+    --primary-dark: 285 90% 45%;
+    --primary-light: 275 100% 75%;
+    --primary-foreground: 260 15% 8%;
+    --accent: 320 100% 65%;
+    --accent-dark: 325 90% 55%;
+    --accent-light: 315 100% 75%;
+    --accent-foreground: 260 15% 8%;
+    --secondary: 260 20% 22%;
+    --secondary-foreground: 300 15% 92%;
+    --muted: 260 15% 20%;
+    --muted-foreground: 280 10% 68%;
+    --border: 280 20% 28%;
+    --input: 260 20% 18%;
+    --ring: 280 100% 65%;
   }
 }
 
@@ -175,17 +177,34 @@
     background-clip: text;
   }
   
-  /* Button Variants */
+  /* Rainbow Gradient Text - Special Effects */
+  .gradient-rainbow-text {
+    background: var(--gradient-rainbow);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: rainbow-pulse 3s ease-in-out infinite alternate;
+  }
+  
+  /* Enhanced Button Variants */
   .btn-primary {
     background: var(--gradient-primary);
     @apply text-primary-foreground font-semibold px-8 py-4 rounded-lg transition-all duration-300 hover:scale-105;
     box-shadow: var(--shadow-primary);
   }
   
+  .btn-primary:hover {
+    box-shadow: var(--shadow-rainbow);
+  }
+  
   .btn-accent {
     background: var(--gradient-accent);
     @apply text-accent-foreground font-semibold px-8 py-4 rounded-lg transition-all duration-300 hover:scale-105;
     box-shadow: var(--shadow-glow);
+  }
+  
+  .btn-accent:hover {
+    box-shadow: var(--shadow-rainbow);
   }
   
   /* Section Spacing */
@@ -205,8 +224,17 @@
 }
 
 @keyframes glow {
-  0% { box-shadow: 0 0 20px hsl(var(--accent) / 0.1); }
-  100% { box-shadow: 0 0 40px hsl(var(--accent) / 0.3); }
+  0% { box-shadow: 0 0 20px hsl(var(--accent) / 0.2); }
+  100% { box-shadow: 0 0 40px hsl(var(--accent) / 0.4); }
+}
+
+@keyframes rainbow-pulse {
+  0% { 
+    filter: hue-rotate(0deg) brightness(1);
+  }  
+  100% { 
+    filter: hue-rotate(10deg) brightness(1.1);
+  }
 }
 
 @keyframes fadeInUp {

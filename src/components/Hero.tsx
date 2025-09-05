@@ -1,6 +1,6 @@
 import { Download, Mail, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import heroBackground from "@/assets/hero-background.jpg";
+import heroBackground from "@/assets/hero-background-purple.jpg";
 
 const Hero = () => {
   const scrollToAbout = () => {
@@ -28,7 +28,7 @@ const Hero = () => {
       <div className="container-custom text-center relative z-10">
         <div className="animate-fade-in-up">
           <h1 className="text-5xl md:text-7xl font-bold mb-6">
-            <span className="gradient-text">Rajavardhan</span>
+            <span className="gradient-rainbow-text animate-rainbow-pulse">Rajavardhan</span>
             <br />
             <span className="text-foreground">Reddy Ravula</span>
           </h1>
