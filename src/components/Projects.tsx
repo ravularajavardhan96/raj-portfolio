@@ -1,5 +1,63 @@
-import { ExternalLink, Github, MapPin, TrendingUp, Star, Users } from "lucide-react";
+import { ExternalLink, Github, MapPin, TrendingUp, Star, Users, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useState } from "react";
+
+const ScreenshotCarousel = ({ screenshots }: { screenshots: any[] }) => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const nextSlide = () => {
+    setCurrentIndex((prev) => (prev + 1) % screenshots.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentIndex((prev) => (prev - 1 + screenshots.length) % screenshots.length);
+  };
+
+  return (
+    <div className="relative mb-6 group">
+      <div className="aspect-video rounded-lg overflow-hidden bg-gradient-to-br from-primary/10 to-accent/10">
+        <img
+          src={screenshots[currentIndex].url}
+          alt={screenshots[currentIndex].title}
+          className="w-full h-full object-cover transition-all duration-300"
+        />
+      </div>
+      
+      {screenshots.length > 1 && (
+        <>
+          <button
+            onClick={prevSlide}
+            className="absolute left-2 top-1/2 -translate-y-1/2 p-2 rounded-full bg-background/80 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-all duration-200 hover:bg-background"
+          >
+            <ChevronLeft className="w-4 h-4" />
+          </button>
+          <button
+            onClick={nextSlide}
+            className="absolute right-2 top-1/2 -translate-y-1/2 p-2 rounded-full bg-background/80 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-all duration-200 hover:bg-background"
+          >
+            <ChevronRight className="w-4 h-4" />
+          </button>
+        </>
+      )}
+      
+      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2">
+        {screenshots.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => setCurrentIndex(index)}
+            className={`w-2 h-2 rounded-full transition-all ${
+              index === currentIndex ? 'bg-accent' : 'bg-white/50'
+            }`}
+          />
+        ))}
+      </div>
+      
+      <div className="absolute bottom-2 right-2 px-2 py-1 bg-background/80 backdrop-blur-sm rounded text-xs font-medium">
+        {screenshots[currentIndex].title}
+      </div>
+    </div>
+  );
+};
 
 const Projects = () => {
   const projects = [
@@ -17,7 +75,13 @@ const Projects = () => {
         "⭐ Review and rating system",
         "📱 Responsive design"
       ],
-      badges: ["Featured", "Full-Stack", "MERN"]
+      badges: ["Featured", "Full-Stack", "MERN"],
+      screenshots: [
+        { title: "Home Page", url: "https://via.placeholder.com/600x400/8B5CF6/ffffff?text=Wanderlust+Home" },
+        { title: "Interactive Map", url: "https://via.placeholder.com/600x400/A855F7/ffffff?text=Map+View" },
+        { title: "Listing Details", url: "https://via.placeholder.com/600x400/C084FC/ffffff?text=Listing+Page" },
+        { title: "User Dashboard", url: "https://via.placeholder.com/600x400/DDD6FE/000000?text=Dashboard" }
+      ]
     },
     {
       title: "🐝 TradeHive",
@@ -33,7 +97,13 @@ const Projects = () => {
         "🎨 Clean, responsive UI design",
         "⚡ Interactive trading experience"
       ],
-      badges: ["Clone Project", "Trading", "React"]
+      badges: ["Clone Project", "Trading", "React"],
+      screenshots: [
+        { title: "Login Page", url: "https://via.placeholder.com/600x400/EC4899/ffffff?text=TradeHive+Login" },
+        { title: "Trading Dashboard", url: "https://via.placeholder.com/600x400/F97316/ffffff?text=Trading+Dashboard" },
+        { title: "Portfolio View", url: "https://via.placeholder.com/600x400/EF4444/ffffff?text=Portfolio" },
+        { title: "Buy/Sell Interface", url: "https://via.placeholder.com/600x400/F59E0B/ffffff?text=Buy+Sell" }
+      ]
     }
   ];
 
@@ -78,6 +148,8 @@ const Projects = () => {
               <p className="text-muted-foreground mb-6 leading-relaxed">
                 {project.description}
               </p>
+
+              <ScreenshotCarousel screenshots={project.screenshots} />
 
               <div className="mb-6">
                 <h4 className="font-semibold text-foreground mb-3">Key Features:</h4>
