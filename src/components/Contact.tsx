@@ -1,119 +1,122 @@
+"use client";
+
 import { useState } from "react";
-import { Mail, Phone, Github, Linkedin, Send, MapPin, MessageCircle } from "lucide-react";
+import {
+  Mail,
+  Phone,
+  Github,
+  Linkedin,
+  Send,
+  MapPin,
+  MessageCircle,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 
-const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: ""
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
+export default function Contact() {
   const { toast } = useToast();
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
+    setLoading(true);
 
-    // Simulate form submission
     setTimeout(() => {
+      setLoading(false);
       toast({
         title: "Message Sent!",
-        description: "Thank you for reaching out. I'll get back to you soon!",
+        description: "Thank you for reaching out. I'll get back to you soon.",
       });
-      setFormData({ name: "", email: "", message: "" });
-      setIsSubmitting(false);
-    }, 1000);
+    }, 1500);
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
+  const contactInfo = [
+    {
+      icon: <Mail className="w-6 h-6 text-primary" />,
+      title: "Email",
+      value: "rajavardhan96@gmail.com",
+    },
+    {
+      icon: <Phone className="w-6 h-6 text-primary" />,
+      title: "Phone",
+      value: "+91 9182800745",
+    },
+    {
+      icon: <MapPin className="w-6 h-6 text-primary" />,
+      title: "Location",
+      value: "Hyderabad, India",
+    },
+  ];
 
   const socialLinks = [
     {
       name: "GitHub",
       icon: <Github className="w-5 h-5" />,
       url: "https://github.com/ravularajavardhan96",
-      color: "hover:text-accent"
+      color: "hover:text-gray-900 dark:hover:text-gray-100",
     },
     {
       name: "LinkedIn",
       icon: <Linkedin className="w-5 h-5" />,
       url: "https://www.linkedin.com/in/rajavardhan-reddy-ravula-b122372b0",
-      color: "hover:text-primary"
+      color: "hover:text-blue-600",
     },
     {
-      name: "Email",
-      icon: <Mail className="w-5 h-5" />,
-      url: "mailto:ravularajavardhan96@gmail.com",
-      color: "hover:text-accent"
-    }
+      name: "WhatsApp",
+      icon: <MessageCircle className="w-5 h-5" />,
+      url: "https://wa.me/919182800745",
+      color: "hover:text-green-500",
+    },
   ];
 
   return (
-    <section id="contact" className="section-padding">
-      <div className="container-custom">
+    <section
+      id="contact"
+      className="py-20 bg-background-secondary relative overflow-hidden"
+    >
+      <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            <span className="gradient-text">Let's Connect</span>
+            <span className="gradient-text">   Let’s Connect</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            I'm always open to discussing new opportunities, interesting projects, or just having a great conversation about technology.
+            Whether you’re interested in collaborating, have a project idea, 
+    or just want to say hi — I’d love to hear from you.
           </p>
-        </div>
+          </div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
           {/* Contact Information */}
           <div className="space-y-8">
-            <div className="card-hover p-8 rounded-xl">
-              <h3 className="text-2xl font-bold mb-6 text-foreground">Get In Touch</h3>
-              
+            <div className="card-hover p-4 sm:p-6 md:p-8 rounded-xl">
+              <h3 className="text-2xl font-bold mb-6 text-foreground">
+                Get In Touch
+              </h3>
               <div className="space-y-6">
-                <div className="flex items-center">
-                  <div className="w-12 h-12 bg-gradient-primary rounded-lg flex items-center justify-center mr-4">
-                    <Mail className="w-6 h-6 text-primary-foreground" />
+                {contactInfo.map((info, index) => (
+                  <div key={index} className="flex items-center space-x-4">
+                    <div className="p-3 bg-background-secondary rounded-lg">
+                      {info.icon}
+                    </div>
+                    <div>
+                      <p className="font-semibold text-foreground">
+                        {info.title}
+                      </p>
+                      <p className="text-muted-foreground">{info.value}</p>
+                    </div>
                   </div>
-                  <div>
-                    <p className="font-medium text-foreground">Email</p>
-                    <a href="mailto:ravularajavardhan96@gmail.com" className="text-accent hover:underline">
-                      ravularajavardhan96@gmail.com
-                    </a>
-                  </div>
-                </div>
-
-                <div className="flex items-center">
-                  <div className="w-12 h-12 bg-gradient-accent rounded-lg flex items-center justify-center mr-4">
-                    <MapPin className="w-6 h-6 text-accent-foreground" />
-                  </div>
-                  <div>
-                    <p className="font-medium text-foreground">Location</p>
-                    <p className="text-muted-foreground">Nirmal, Telangana, India</p>
-                  </div>
-                </div>
-
-                <div className="flex items-center">
-                  <div className="w-12 h-12 bg-gradient-primary rounded-lg flex items-center justify-center mr-4">
-                    <MessageCircle className="w-6 h-6 text-primary-foreground" />
-                  </div>
-                  <div>
-                    <p className="font-medium text-foreground">Response Time</p>
-                    <p className="text-muted-foreground">Usually within 24 hours</p>
-                  </div>
-                </div>
+                ))}
               </div>
             </div>
 
             {/* Social Links */}
-            <div className="card-hover p-8 rounded-xl">
-              <h3 className="text-xl font-bold mb-4 text-foreground">Follow Me</h3>
-              <div className="flex space-x-4">
+            <div className="card-hover p-4 sm:p-6 md:p-8 rounded-xl">
+              <h3 className="text-xl font-bold mb-4 text-foreground">
+                Follow Me
+              </h3>
+              <div className="flex flex-wrap gap-4">
                 {socialLinks.map((link) => (
                   <a
                     key={link.name}
@@ -130,77 +133,49 @@ const Contact = () => {
           </div>
 
           {/* Contact Form */}
-          <div className="card-hover p-8 rounded-xl">
-            <h3 className="text-2xl font-bold mb-6 text-foreground">Send a Message</h3>
-            
+          <div className="card-hover p-4 sm:p-6 md:p-8 rounded-xl">
+            <h3 className="text-2xl font-bold mb-6 text-foreground">
+              Send a Message
+            </h3>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
-                  Name
-                </label>
                 <Input
-                  type="text"
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
+                  placeholder="Your Name"
+                  className="bg-background-secondary"
                   required
-                  className="w-full"
-                  placeholder="Your full name"
                 />
               </div>
-
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
-                  Email
-                </label>
                 <Input
                   type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
+                  placeholder="Your Email"
+                  className="bg-background-secondary"
                   required
-                  className="w-full"
-                  placeholder="your.email@example.com"
                 />
               </div>
-
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
-                  Message
-                </label>
                 <Textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
+                  placeholder="Your Message"
+                  className="bg-background-secondary min-h-[120px]"
                   required
-                  className="w-full min-h-[120px]"
-                  placeholder="Tell me about your project or just say hello!"
                 />
               </div>
-
               <Button
                 type="submit"
-                disabled={isSubmitting}
-                className="btn-accent w-full"
+                className="w-full sm:w-auto"
+                disabled={loading}
               >
-                {isSubmitting ? (
-                  "Sending..."
-                ) : (
-                  <>
-                    <Send className="w-4 h-4 mr-2" />
-                    Send Message
-                  </>
-                )}
+                {loading ? "Sending..." : "Send Message"}
+                <Send className="ml-2 w-4 h-4" />
               </Button>
             </form>
           </div>
         </div>
       </div>
+
+      {/* Decorative Blurs */}
+      <div className="absolute top-0 -left-40 w-80 h-80 bg-primary/10 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob" />
+      <div className="absolute bottom-0 -right-40 w-80 h-80 bg-secondary/10 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-2000" />
     </section>
   );
-};
-
-export default Contact;
+}

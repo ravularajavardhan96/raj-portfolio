@@ -189,21 +189,31 @@ const Projects = () => {
               </div>
 
               {/* Live & Code Buttons */}
-              <div className="flex gap-4">
-                <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="flex-1">
-                  <Button className="btn-primary w-full">
-                    <ExternalLink className="w-4 h-4 mr-2" />
-                    Live Demo
-                  </Button>
-                </a>
+             <div className="flex flex-col sm:flex-row gap-4">
+  <a
+    href={project.liveUrl}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="flex-1"
+  >
+    <Button className="btn-primary w-full transition-transform duration-200 hover:scale-105">
+      <ExternalLink className="w-4 h-4 mr-2" />
+      Live Demo
+    </Button>
+  </a>
 
-                <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="flex-1">
-                  <Button className="btn-accent w-full">
-                    <Github className="w-4 h-4 mr-2" />
-                    View Code
-                  </Button>
-                </a>
-              </div>
+  <a
+    href={project.githubUrl}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="flex-1"
+  >
+    <Button className="btn-accent w-full transition-transform duration-200 hover:scale-105">
+      <Github className="w-4 h-4 mr-2" />
+      View Code
+    </Button>
+  </a>
+</div>
             </div>
           ))}
         </div>

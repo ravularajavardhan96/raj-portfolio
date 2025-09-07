@@ -8,13 +8,13 @@ const CodingProfiles = () => {
       name: "LeetCode",
       icon: <SiLeetcode className="w-8 h-8 text-orange-500" />,
       url: "https://leetcode.com/u/rajavardhan96/",
-      description: "Solved 100+ problems"
+      description: "Solved 140+ problems"
     },
     {
       name: "GeeksforGeeks",
       icon: <SiGeeksforgeeks className="w-8 h-8 text-green-600" />,
-      url: "https://auth.geeksforgeeks.org/user/ravularajavardhan96/",
-      description: "Solved 30+ problems"
+      url: "https://www.geeksforgeeks.org/user/ravularajatz4m/",
+      description: "Solved 60+ problems"
     },
     {
       name: "GitHub",

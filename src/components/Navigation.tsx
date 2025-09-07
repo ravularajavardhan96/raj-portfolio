@@ -16,8 +16,9 @@ const Navigation = () => {
   const navItems = [
     { name: "Home", href: "#hero" },
     { name: "About", href: "#about" },
+     { name: "Skills", href: "#skills" },
     {name:"Coding Profiles",href:"#coding-profiles"},
-    { name: "Skills", href: "#skills" },
+   
     { name: "Projects", href: "#projects" },
     { name: "Contact", href: "#contact" },
   ];
@@ -38,7 +39,7 @@ const Navigation = () => {
     >
       <div className="container-custom">
         <div className="flex items-center justify-between py-4">
-          <div className="text-2xl font-bold gradient-text">
+          <div className="text-2xl font-bold light">
             Rajavardhan
           </div>
 

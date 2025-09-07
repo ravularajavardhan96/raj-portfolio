@@ -2,115 +2,56 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Professional Portfolio Design System - Dark Theme with Modern Aesthetics */
+/* Modern Dark Portfolio Theme */
 
 @layer base {
   :root {
-    /* Background System - Rich Dark with Purple Undertones */
     --background: 260 15% 8%;
     --background-secondary: 260 20% 12%;
     --background-tertiary: 260 25% 16%;
     --foreground: 300 15% 96%;
-    
-    /* Card System - Elegant Dark Cards with Purple Hints */
+
     --card: 260 20% 12%;
     --card-secondary: 260 25% 16%;
     --card-foreground: 300 15% 96%;
     --card-border: 280 20% 25%;
-    
-    /* Primary Brand - Electric Purple to Deep Violet */
+
     --primary: 280 100% 65%;
     --primary-dark: 285 90% 45%;
     --primary-light: 275 100% 75%;
     --primary-foreground: 260 15% 8%;
-    
-    /* Accent System - Hot Pink/Magenta for CTAs */
+
     --accent: 320 100% 65%;
     --accent-dark: 325 90% 55%;
     --accent-light: 315 100% 75%;
     --accent-foreground: 260 15% 8%;
-    
-    /* Secondary Colors */
+
     --secondary: 260 20% 22%;
     --secondary-foreground: 300 15% 92%;
-    
-    /* Muted Elements */
+
     --muted: 260 15% 20%;
     --muted-foreground: 280 10% 68%;
-    
-    /* Interactive Elements */
+
     --border: 280 20% 28%;
     --input: 260 20% 18%;
     --ring: 280 100% 65%;
-    
-    /* Gradients - Purple/Pink Magic */
+
     --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-dark)));
     --gradient-accent: linear-gradient(135deg, hsl(var(--accent)), hsl(var(--accent-dark)));
     --gradient-hero: linear-gradient(135deg, hsl(var(--background)) 0%, hsl(var(--background-secondary)) 30%, hsl(280 40% 20%) 70%, hsl(var(--primary-dark)) 100%);
     --gradient-card: linear-gradient(145deg, hsl(var(--card)), hsl(var(--card-secondary)));
     --gradient-rainbow: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--accent)) 50%, hsl(280 100% 70%) 100%);
-    
-    /* Shadows - Purple Glow Effects */
+
     --shadow-soft: 0 4px 20px -2px hsl(var(--background) / 0.4);
     --shadow-medium: 0 8px 30px -4px hsl(var(--background) / 0.5);
     --shadow-glow: 0 0 40px hsl(var(--accent) / 0.3);
     --shadow-primary: 0 10px 40px -10px hsl(var(--primary) / 0.4);
     --shadow-rainbow: 0 0 50px hsl(var(--primary) / 0.2), 0 0 100px hsl(var(--accent) / 0.1);
-    
-    /* Animations */
+
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    
+
     --radius: 0.75rem;
-
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-  
-  .dark {
-    /* Dark theme uses the same modern purple/pink palette */
-    --background: 260 15% 8%;
-    --background-secondary: 260 20% 12%;
-    --background-tertiary: 260 25% 16%;
-    --foreground: 300 15% 96%;
-    --card: 260 20% 12%;
-    --card-secondary: 260 25% 16%;
-    --card-foreground: 300 15% 96%;
-    --card-border: 280 20% 25%;
-    --primary: 280 100% 65%;
-    --primary-dark: 285 90% 45%;
-    --primary-light: 275 100% 75%;
-    --primary-foreground: 260 15% 8%;
-    --accent: 320 100% 65%;
-    --accent-dark: 325 90% 55%;
-    --accent-light: 315 100% 75%;
-    --accent-foreground: 260 15% 8%;
-    --secondary: 260 20% 22%;
-    --secondary-foreground: 300 15% 92%;
-    --muted: 260 15% 20%;
-    --muted-foreground: 280 10% 68%;
-    --border: 280 20% 28%;
-    --input: 260 20% 18%;
-    --ring: 280 100% 65%;
-  }
-}
-
-@layer base {
-  * {
-    @apply border-border;
   }
 
   body {
@@ -121,63 +62,68 @@
 }
 
 @layer components {
-  /* Hero Animations */
-  .animate-float {
-    animation: float 6s ease-in-out infinite;
+  /* Buttons */
+  .btn-primary {
+    background: var(--gradient-primary);
+    @apply w-full sm:w-auto text-primary-foreground font-semibold px-6 py-3 rounded-lg transition-all duration-300;
+    box-shadow: var(--shadow-primary);
   }
-  
-  .animate-glow {
-    animation: glow 3s ease-in-out infinite alternate;
+  .btn-primary:hover {
+    @apply scale-105;
+    box-shadow: var(--shadow-rainbow);
   }
-  
-  /* Card Hover Effects */
+
+  .btn-accent {
+    background: var(--gradient-accent);
+    @apply w-full sm:w-auto text-accent-foreground font-semibold px-6 py-3 rounded-lg transition-all duration-300;
+    box-shadow: var(--shadow-glow);
+  }
+  .btn-accent:hover {
+    @apply scale-105;
+    box-shadow: var(--shadow-rainbow);
+  }
+
+  /* Cards */
   .card-hover {
     @apply transition-all duration-300 hover:scale-105 hover:shadow-lg;
     background: var(--gradient-card);
     border: 1px solid hsl(var(--card-border));
   }
-  
-  /* Skill Card Animation */
+
   .skill-card {
     @apply transition-all duration-300 cursor-pointer;
     background: var(--gradient-card);
     border: 1px solid hsl(var(--card-border));
   }
-  
   .skill-card:hover {
     transform: translateY(-8px);
     box-shadow: var(--shadow-glow);
     border-color: hsl(var(--accent));
   }
-  
-  /* Project Card Styles */
+
   .project-card {
     @apply relative overflow-hidden rounded-xl transition-all duration-500;
     background: var(--gradient-card);
     border: 1px solid hsl(var(--card-border));
   }
-  
   .project-card:hover {
     transform: translateY(-12px);
     box-shadow: var(--shadow-primary);
   }
-  
-  /* Gradient Text */
+
+  /* Typography */
   .gradient-text {
     background: var(--gradient-primary);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
-  
   .gradient-accent-text {
     background: var(--gradient-accent);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
-  
-  /* Rainbow Gradient Text - Special Effects */
   .gradient-rainbow-text {
     background: var(--gradient-rainbow);
     -webkit-background-clip: text;
@@ -185,76 +131,34 @@
     background-clip: text;
     animation: rainbow-pulse 3s ease-in-out infinite alternate;
   }
-  
-  /* Enhanced Button Variants */
-  .btn-primary {
-    background: var(--gradient-primary);
-    @apply text-primary-foreground font-semibold px-8 py-4 rounded-lg transition-all duration-300 hover:scale-105;
-    box-shadow: var(--shadow-primary);
-  }
-  
-  .btn-primary:hover {
-    box-shadow: var(--shadow-rainbow);
-  }
-  
-  .btn-accent {
-    background: var(--gradient-accent);
-    @apply text-accent-foreground font-semibold px-8 py-4 rounded-lg transition-all duration-300 hover:scale-105;
-    box-shadow: var(--shadow-glow);
-  }
-  
-  .btn-accent:hover {
-    box-shadow: var(--shadow-rainbow);
-  }
-  
-  /* Section Spacing */
+
+  /* Sections */
   .section-padding {
-    @apply px-6 py-20 lg:px-8;
+    @apply px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-20;
   }
-  
-  /* Container */
   .container-custom {
-    @apply max-w-7xl mx-auto;
+    @apply w-full max-w-7xl mx-auto px-4 sm:px-6;
   }
 }
 
+/* Animations */
 @keyframes float {
   0%, 100% { transform: translateY(0px) rotate(0deg); }
   50% { transform: translateY(-20px) rotate(5deg); }
 }
-
 @keyframes glow {
   0% { box-shadow: 0 0 20px hsl(var(--accent) / 0.2); }
   100% { box-shadow: 0 0 40px hsl(var(--accent) / 0.4); }
 }
-
 @keyframes rainbow-pulse {
-  0% { 
-    filter: hue-rotate(0deg) brightness(1);
-  }  
-  100% { 
-    filter: hue-rotate(10deg) brightness(1.1);
-  }
+  0% { filter: hue-rotate(0deg) brightness(1); }
+  100% { filter: hue-rotate(10deg) brightness(1.1); }
 }
-
 @keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
 }
-
 @keyframes slideInLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-50px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
+  from { opacity: 0; transform: translateX(-50px); }
+  to { opacity: 1; transform: translateX(0); }
 }
